@@ -1,0 +1,19 @@
+@import 'normalize.css';
+@import '@blueprintjs/core/lib/css/blueprint.css';
+@import '@blueprintjs/icons/lib/css/blueprint-icons.css';
+
+.reduxform,
+.router,
+.Form,
+.count,
+.fetch,
+.Guess {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
