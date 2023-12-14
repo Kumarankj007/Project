@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const schema = yup.object().shape({
@@ -26,6 +26,9 @@ function Form1() {
     	<h1>Sign up</h1>
     	<form onSubmit={handleSubmit((data) => {
     		console.log(data);
+        if (isValid) {
+          navigate('../Home');
+        }
     	})}>
     	<input {...register('firstName')} placeholder="First Name..." /><br />
     	<p>{errors.firstName?.message}</p>
@@ -45,10 +48,8 @@ function Form1() {
     	<input {...register('confirmPassword')} type="password" placeholder="Confirm Password" /><br />
     	<p>{errors.confirmPassword?.message}</p>
     	
-    	<button type="submit" id="submit" disabled={isDirty && !isValid} >
-          <nav>
-            <Link to="../Home" disabled={isDirty && !isValid} style={{textDecoration: 'none'}}>Login</Link>
-          </nav>
+    	<button type="submit" id="submit" className='btn' disabled={isDirty && !isValid} >
+         Login
       </button>
     	</form>
     </div>
