@@ -15,6 +15,7 @@ const schema = yup.object().shape({
   })
 
 function Form1() {
+  let navigate = useNavigate();
   const { register, handleSubmit, formState: { errors, isValid, isDirty } } = useForm({
   	resolver: yupResolver(schema),
   	mode: 'onChange'
